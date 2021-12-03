@@ -1,0 +1,11 @@
+---
+- name: line in file and variables
+  hosts: 
+    - localhost
+  vars:
+    dnd-server: 127.0.0.1
+  tasks:
+    - name: update resolv.conf
+      lineinfile:
+        path: /etc/resolv.conf
+        line: 'name server {{ dns-server }}'

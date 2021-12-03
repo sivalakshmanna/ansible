@@ -1,0 +1,16 @@
+---
+- name: play1
+  hosts:
+  - 127.0.0.1
+  become: yes
+  tasks:
+  - name: print date
+    command: date
+  - name: install httpd
+    yum:
+      name: httpd 
+      state: latest
+  - name: restart httpd
+    service:
+      name: httpd
+      state: restarted
